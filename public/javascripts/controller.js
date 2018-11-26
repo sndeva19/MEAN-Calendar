@@ -76,11 +76,11 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
                 	 for(j=0; j<buildArr.length; j++){
                 		 //Todo: 1. create capsules for each build  && 2. Beautify the page
                 		 
-                		 if(buildArr[j].status === "Success") {
+                		 if(buildArr[j].status === "SUCCESS") {
                 			 element.style["background-color"] = "green";
                 		 }
-                		 else if(buildArr[j].status === "Unstable") {
-                			 element.style["background-color"] = "yellow";
+                		 else if(buildArr[j].status === "UNSTABLE") {
+                			 element.style["background-color"] = "#ffc266";
                 		 }
                 		 else {
                 			 element.style["background-color"] = "red";
