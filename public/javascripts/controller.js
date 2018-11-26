@@ -34,6 +34,7 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
 
     $http.get('http://localhost:3000/build/all?month=11&year=2018').
         then(function(response) {
+
 	    /*$scope.greeting = response.data;
 	
 	    $http.get('http://rest-service.guides.spring.io/greeting').
