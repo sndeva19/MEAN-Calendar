@@ -32,16 +32,11 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
     $scope.yearMonth = $routeParams.year + '-' + $scope.twoDigit($routeParams.month) + '-';
     
 
-    $http.get('http://localhost:3000/build/all?month=11&year=2018').
+    $http.get('http://localhost:3000/build/all?month=' + $scope.currentMonth + '&year=' + $scope.currentYear).
         then(function(response) {
-
-	    /*$scope.greeting = response.data;
-	
-	    $http.get('http://rest-service.guides.spring.io/greeting').
-	        then(function(response) {
-	            $scope.greeting = response.data;
-
-            monthData= {
+        	/*
+            Sample Data:
+            {
             	"2018-11-19":
 	            [
 	            	{
@@ -67,13 +62,14 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
 		            }
 		        ]
 
-            };*/
+            }
+            */
             monthData = response.data
 
             var i;
             for (i = 1; i <= $scope.totalDays; i++) { 
                 var element = document.getElementById("day-" + i)
-                var key = $scope.currentYear + "-" + $scope.currentMonth + "-" + i;
+                var key = $scope.currentYear + "-" + $scope.currentMonth + "-" + $scope.twoDigit(i);
                 var buildArr = monthData[key];
                 if(buildArr && buildArr.length>0){
                 	 var j;
@@ -98,18 +94,6 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
 
 calendarController.controller('dayCtrl', function($scope, $http, $filter, $location) {
     $scope.day = $scope.date.split('-').slice(-1)[0].replace(/\b0(?=\d)/g, ''); // Get the day from the date and remove leading 0s
-    
-    /*$http.get('/tasks/date/' + $scope.date).
-    success(function(data, status, headers, config) {
-		$scope.dayTasks = data;
-    });*/
-    /*$http.get('http://rest-service.guides.spring.io/greeting').
-        then(function(response) {
-            $scope.greeting = response.data;
-            var element = document.getElementById("day-" + $scope.day)
-            element.style["background-color"] = "green";
-    });*/
-    
 });
 
 calendarController.controller('ViewTaskCtrl', function($scope, $http, $routeParams, $location) {

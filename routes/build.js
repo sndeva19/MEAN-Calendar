@@ -32,7 +32,7 @@ function parseJenkinsResponse(jenkinsBuild,query_params){
 			continue;
 		}
 		var month  = months[current_date.substring(4,7)];
-		var date = current_date.substring(10,15) + "-" +  month + "-" + current_date.substring(8,10);
+		var date = current_date.substring(11,15) + "-" +  month + "-" + current_date.substring(8,10);
 		responseToUI[date] = [];
 		var result = {};
 		result.build_no = buildItem.id;
@@ -40,7 +40,7 @@ function parseJenkinsResponse(jenkinsBuild,query_params){
 		result.report_link = 'http://byoos-nfs.rch.kstart.ibm.com/katalon-reports/' + buildItem.id;
 		result.jenkins_build_link = 'https://orpheus-jenkins.swg-devops.com:8443/job/cam-bvt-pipeline/' +  buildItem.id;
 		responseToUI[date].push(result);
-	}; 
+	}
 	return responseToUI;
 }
 
