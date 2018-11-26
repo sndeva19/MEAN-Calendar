@@ -31,9 +31,16 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
     $scope.totalDays = parseInt(daysInMonth, 10);
     $scope.yearMonth = $routeParams.year + '-' + $scope.twoDigit($routeParams.month) + '-';
     
-    $http.get('http://rest-service.guides.spring.io/greeting').
+
+    $http.get('http://localhost:3000/build/all?month=11&year=2018').
         then(function(response) {
-            $scope.greeting = response.data;
+
+	    /*$scope.greeting = response.data;
+	
+	    $http.get('http://rest-service.guides.spring.io/greeting').
+	        then(function(response) {
+	            $scope.greeting = response.data;
+
             monthData= {
             	"2018-11-19":
 	            [
@@ -59,8 +66,10 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
 		            	"jenkins_build_link": "https://orpheus-jenkins.swg-devops.com:8443/job/cam-bvt-pipeline/310166"
 		            }
 		        ]
-            };
-            $scope.monthData = monthData;
+
+            };*/
+            monthData = response.data
+
             var i;
             for (i = 1; i <= $scope.totalDays; i++) { 
                 var element = document.getElementById("day-" + i)
