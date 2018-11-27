@@ -74,16 +74,26 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
                 if(buildArr && buildArr.length>0){
                 	 var j;
                 	 for(j=0; j<buildArr.length; j++){
-                		 //Todo: 1. create capsules for each build  && 2. Beautify the page
-                		 
-                		 if(buildArr[j].status === "SUCCESS") {
-                			 element.style["background-color"] = "green";
+                		//Todo: 1. create capsules for each build  && 2. Beautify the page
+                		 if(!buildArr[j].status) {
+                			 //color blue
+                			 element.style["background-color"] = "#ccffff";
+                		 }
+                		 else if(buildArr[j].status === "SUCCESS") {
+                			 //clor green
+                			 element.style["background-color"] = "#00b300";
                 		 }
                 		 else if(buildArr[j].status === "UNSTABLE") {
+                			 //color amber
                 			 element.style["background-color"] = "#ffc266";
                 		 }
+                		 else if(buildArr[j].status === "ABORTED") {
+                			 //color gray
+                			 element.style["background-color"] = "#d9d9d9";
+                		 }
                 		 else {
-                			 element.style["background-color"] = "red";
+                			 //color red
+                			 element.style["background-color"] = "#ff4d4d";
                 		 }
                 	 }
                 }
