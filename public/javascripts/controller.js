@@ -41,7 +41,7 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
 	            [
 	            	{
             			"build_no": 310166,
-            			"status": "Success",
+            			"status": "SUCCESS",
 		            	"report_link": "http://byoos-nfs.rch.kstart.ibm.com/katalon-reports/310164",
 		            	"jenkins_build_link": "https://orpheus-jenkins.swg-devops.com:8443/job/cam-bvt-pipeline/310164"
             		}
@@ -50,13 +50,13 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
 	            [
 		            {
 		            	"build_no": 310165,
-		            	"status": "Unstable",
+		            	"status": "UNSTABLE",
 		            	"report_link": "http://byoos-nfs.rch.kstart.ibm.com/katalon-reports/310165",
 		            	"jenkins_build_link": "https://orpheus-jenkins.swg-devops.com:8443/job/cam-bvt-pipeline/310165"
 		            },
 		            {	
 		            	"build_no": 310166,
-		            	"status": "Failed",
+		            	"status": "FAILED",
 		            	"report_link": "http://byoos-nfs.rch.kstart.ibm.com/katalon-reports/310166",
 		            	"jenkins_build_link": "https://orpheus-jenkins.swg-devops.com:8443/job/cam-bvt-pipeline/310166"
 		            }
