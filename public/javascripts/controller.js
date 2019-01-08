@@ -32,7 +32,7 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
     $scope.yearMonth = $routeParams.year + '-' + $scope.twoDigit($routeParams.month) + '-';
     
 
-    $http.get('http://localhost:3000/build/all?month=' + $scope.currentMonth + '&year=' + $scope.currentYear).
+    $http.get('http://localhost:3000/build/all?month=' + $scope.twoDigit($scope.currentMonth) + '&year=' + $scope.currentYear).
         then(function(response) {
         	/*
             Sample Data:
@@ -69,7 +69,7 @@ calendarController.controller('monthCtrl', function($scope, $http, $routeParams,
             var i;
             for (i = 1; i <= $scope.totalDays; i++) { 
                 var element = document.getElementById("day-" + i)
-                var key = $scope.currentYear + "-" + $scope.currentMonth + "-" + $scope.twoDigit(i);
+                var key = $scope.currentYear + "-" + $scope.twoDigit($scope.currentMonth) + "-" + $scope.twoDigit(i);
                 var buildArr = monthData[key];
                 if(buildArr && buildArr.length>0){
                 	 var j;
